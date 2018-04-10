@@ -1,4 +1,7 @@
-import stu.mango.algorithm.exam.min_value_stack.MinValueStack2;
+import stu.mango.algorithm.exam.cat_dog_queue.Cat;
+import stu.mango.algorithm.exam.cat_dog_queue.Dog;
+import stu.mango.algorithm.exam.cat_dog_queue.PetQueue;
+import stu.mango.algorithm.exam.min_value_stack.MinValueStack1;
 import stu.mango.algorithm.exam.reverse_stack.ReverseStackByRecursive;
 import stu.mango.algorithm.util.AlgorithmUtil;
 
@@ -9,7 +12,7 @@ public class Test {
     private static void testMinStack() {
         for (int i = 0; i < 10000; i++) {
             Integer[] values = AlgorithmUtil.generateRandomArray(10, 10);
-            MinValueStack2 minValueStack1 = new MinValueStack2();
+            MinValueStack1 minValueStack1 = new MinValueStack1();
             for (Integer value : values) {
                 minValueStack1.push(value);
             }
@@ -40,8 +43,28 @@ public class Test {
         }
     }
 
+    public static void testCatDogQueue() {
+        PetQueue petQueue = new PetQueue();
+        for (int i = 0; i < 100; i++) {
+            boolean isCat = Math.random()*2 < 1;
+            if (isCat) {
+                System.out.print("cat ");
+                petQueue.add(new Cat());
+            } else {
+                System.out.print("dog ");
+                petQueue.add(new Dog());
+            }
+        }
+
+        System.out.println("\n");
+        while (!petQueue.isEmpty()) {
+            System.out.print(petQueue.pollAll() + ", ");
+        }
+    }
+
     public static void main(String[] args) {
 //        testMinStack();
 //        testReverseStack();
+        testCatDogQueue();
     }
 }

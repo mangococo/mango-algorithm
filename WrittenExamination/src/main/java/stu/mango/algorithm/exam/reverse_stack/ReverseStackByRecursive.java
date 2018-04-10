@@ -3,6 +3,9 @@ package stu.mango.algorithm.exam.reverse_stack;
 import java.util.Stack;
 
 public class ReverseStackByRecursive {
+    /**
+     * 逆序
+     */
     public static void reverse(Stack stack) {
         if (stack.isEmpty()) {
             return;
@@ -13,6 +16,9 @@ public class ReverseStackByRecursive {
         stack.push(obj);
     }
 
+    /**
+     * 获取并"删除"栈底元素
+     */
     private static Object getAndRemoveBottomEle(Stack stack) {
         Object result = stack.pop();
 
