@@ -41,7 +41,7 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        // testMinStack();
-        testReverseStack();
+//        testMinStack();
+//        testReverseStack();
     }
 }
