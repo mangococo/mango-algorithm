@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>mango-algorithm-exam</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>stu.mango.algorithm</groupId>
+            <artifactId>mango-algorithm</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
