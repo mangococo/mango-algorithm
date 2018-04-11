@@ -1,6 +1,6 @@
 package stu.mango.algorithm.sort.util;
 
-import stu.mango.algorithm.sort.MangoSort;
+import stu.mango.algorithm.sort.MangoSorter;
 import stu.mango.algorithm.util.AlgorithmUtil;
 
 import java.util.Arrays;
@@ -48,7 +48,7 @@ public class TestUtil {
     /*
      * 对数器
      */
-    public static void test(MangoSort<Integer> sort, int testTime) {
+    public static void test(MangoSorter<Integer> sort, int testTime) {
         for (int i = 0; i < testTime; i++) {
             Integer[] arr1 = AlgorithmUtil.generateRandomArray(100, 100);
             Integer[] arr2 = copyArray(arr1);

@@ -1,11 +1,10 @@
 package stu.mango.algorithm.sort.impl;
 
-import stu.mango.algorithm.sort.AbstractMangoSort;
+import stu.mango.algorithm.sort.AbstractMangoSorter;
 import stu.mango.algorithm.sort.MangoComparable;
-import stu.mango.algorithm.sort.MangoSort;
 
 
-public class QuickSort<T> extends AbstractMangoSort<T> {
+public class QuickSorter<T> extends AbstractMangoSorter<T> {
 
     public void sort(T[] array, MangoComparable<T> comparable) {
         if (array == null || array.length < 2) {
