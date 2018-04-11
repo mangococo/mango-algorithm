@@ -4,14 +4,14 @@ public class AlgorithmUtil {
     /**
      *
      * @param size 最终生成数组长度 [1, size]
-     * @param value [-value, value]
+     * @param maxValue [-maxValue, maxValue]
      * @return 长度、内容皆为 int 随机数的数组
      */
-    public static Integer[] generateRandomArray(int size, int value) {
+    public static Integer[] generateRandomArray(int size, int maxValue) {
         // Math.random() -> double [0, 1)
         Integer[] randomArray = new Integer[(int) ((size+1) * Math.random())+1]; // [1, size]
         for (int i = 0; i < randomArray.length; i++) {
-            randomArray[i] = (int) ((value+1) * Math.random()) - (int) ((value) * Math.random());
+            randomArray[i] = (int) ((maxValue+1) * Math.random()) - (int) ((maxValue) * Math.random());
         }
 
         return randomArray;

@@ -1,4 +1,4 @@
-package stu.mango.algorithm.exam.cat_dog_queue;
+package stu.mango.algorithm.exam.queue.cat_dog_queue;
 
 import java.util.Queue;
 import java.util.concurrent.LinkedTransferQueue;
@@ -32,7 +32,7 @@ public class PetQueue {
         this.count++;
     }
 
-    public Pet pollAll() {
+    public Pet poll() {
         if (isEmpty()) {
             throw new RuntimeException("No Pets!");
         }
@@ -45,9 +45,7 @@ public class PetQueue {
             return pollCat();
         }
 
-        boolean catFirst = catQueue.peek().getIndex() > dogQueue.peek().getIndex();
-        System.out.println(catFirst);
-        if (catFirst) {
+        if (catQueue.peek().getIndex() < dogQueue.peek().getIndex()) {
             return pollCat();
         }
 
@@ -79,6 +77,46 @@ public class PetQueue {
 
     public boolean isDogEmpty() {
         return dogQueue.isEmpty();
+    }
+
+    public long size() {
+        return catQueue.size() + dogQueue.size();
+    }
+
+    public long catsSize() {
+        return catQueue.size();
+    }
+
+    public long dogsSize() {
+        return dogQueue.size();
+    }
+
+    public Pet peek() {
+        if (isEmpty()) {
+            throw new RuntimeException("No Pets!");
+        }
+
+        if(catQueue.isEmpty()) {
+            return peekDog();
+        }
+
+        if (dogQueue.isEmpty()) {
+            return peekCat();
+        }
+
+        if (catQueue.peek().getIndex() < dogQueue.peek().getIndex()) {
+            return peekCat();
+        }
+
+        return peekDog();
+    }
+
+    public Cat peekCat() {
+        return (Cat) catQueue.peek().getPet();
+    }
+
+    public Dog peekDog() {
+        return (Dog) dogQueue.peek().getPet();
     }
 }
 

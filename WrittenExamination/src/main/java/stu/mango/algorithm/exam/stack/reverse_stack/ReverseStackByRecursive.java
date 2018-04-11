@@ -1,4 +1,4 @@
-package stu.mango.algorithm.exam.reverse_stack;
+package stu.mango.algorithm.exam.stack.reverse_stack;
 
 import java.util.Stack;
 

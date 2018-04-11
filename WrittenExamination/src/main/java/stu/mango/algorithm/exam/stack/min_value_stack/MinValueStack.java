@@ -1,4 +1,4 @@
-package stu.mango.algorithm.exam.min_value_stack;
+package stu.mango.algorithm.exam.stack.min_value_stack;
 
 import java.util.Stack;
 

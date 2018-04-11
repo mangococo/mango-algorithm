@@ -1,4 +1,4 @@
-package stu.mango.algorithm.exam.cat_dog_queue;
+package stu.mango.algorithm.exam.queue.cat_dog_queue;
 
 /**
  *
