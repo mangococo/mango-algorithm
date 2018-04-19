@@ -48,14 +48,17 @@ public class TestUtil {
     /*
      * 对数器
      */
-    public static void test(MangoSorter<Integer> sort, int testTime) {
+    public static void test(MangoSorter<Integer> sort, int size, int testTime) {
         for (int i = 0; i < testTime; i++) {
-            Integer[] arr1 = AlgorithmUtil.generateRandomArray(100, 100);
+            Integer[] arr1 = AlgorithmUtil.generateRandomArray(size, 100);
             Integer[] arr2 = copyArray(arr1);
+            Integer[] src = copyArray(arr1);
+
             sort.sort(arr1, (left, right) -> left - right);
             sort(arr2);
             if (!isEqual(arr1, arr2)) {
                 System.out.println("第" + (i+1) + "次测试时失败：");
+                System.out.println("\t原序列：" + Arrays.toString(src));
                 System.out.println("\t排序算法：" + Arrays.toString(arr1));
                 System.out.println("\t正确排序：" + Arrays.toString(arr2));
                 return;
