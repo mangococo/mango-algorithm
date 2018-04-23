@@ -3,7 +3,13 @@ package stu.mango.algorithm.sort.impl;
 import stu.mango.algorithm.sort.AbstractMangoSorter;
 import stu.mango.algorithm.sort.MangoComparable;
 
-
+/**
+ * 插入排序
+ *
+ * @author mangococo
+ *
+ * @see stu.mango.algorithm.sort.MangoSorter
+ */
 public class InsertSorter<T> extends AbstractMangoSorter<T> {
     @Override
     public void sort(T[] array, MangoComparable<T> comparable) {

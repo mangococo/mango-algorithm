@@ -1,5 +1,12 @@
 package stu.mango.algorithm.sort;
 
+/**
+ * 待排序排序比较原则（可使用lambda表达式）
+ *
+ * @author mangococo
+ *
+ * @see stu.mango.algorithm.sort.MangoSorter
+ */
 @FunctionalInterface
 public interface MangoComparable<T> {
     /**
