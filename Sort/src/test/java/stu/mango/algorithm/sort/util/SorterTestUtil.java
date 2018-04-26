@@ -6,8 +6,8 @@ import stu.mango.algorithm.util.AlgorithmUtil;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class TestUtil {
-    private static Integer[] copyArray(Integer[] arr) {
+public class SorterTestUtil {
+    private static Integer[] arrayClone(Integer[] arr) {
         if (arr == null) {
             return null;
         }
@@ -41,18 +41,18 @@ public class TestUtil {
     }
 
 
+    /*
+     * 对数器
+     */
     private static void sort(Integer[] array) {
         Arrays.sort(array);
     }
 
-    /*
-     * 对数器
-     */
     public static void test(MangoSorter<Integer> sort, int size, int testTime) {
         for (int i = 0; i < testTime; i++) {
             Integer[] arr1 = AlgorithmUtil.generateRandomArray(size, 100);
-            Integer[] arr2 = copyArray(arr1);
-            Integer[] src = copyArray(arr1);
+            Integer[] arr2 = arrayClone(arr1);
+            Integer[] src = arrayClone(arr1);
 
             sort.sort(arr1, (left, right) -> left - right);
             sort(arr2);

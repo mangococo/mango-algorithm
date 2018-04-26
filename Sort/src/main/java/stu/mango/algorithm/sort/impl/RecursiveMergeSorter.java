@@ -10,7 +10,7 @@ import stu.mango.algorithm.sort.MangoComparable;
  *
  * 2018/4/18 08:18
  */
-public class MergeRecursive<T> extends Merge<T> {
+public class RecursiveMergeSorter<T> extends Merge<T> {
 
     @Override
     public void sort(T[] array, MangoComparable<T> comparable) {
@@ -25,7 +25,7 @@ public class MergeRecursive<T> extends Merge<T> {
             return;
         }
 
-        int mid = start + ((end - start) >> 1);// end - ((end - start) >> 1);  // TODO 错误
+        int mid = start + ((end - start) >> 1);// end - ((end - start) >> 1);  todo
 
         sort(array, start, mid, comparable);
         sort(array, mid+1, end, comparable);

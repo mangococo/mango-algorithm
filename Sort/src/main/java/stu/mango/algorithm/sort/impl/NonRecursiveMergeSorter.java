@@ -12,7 +12,7 @@ import stu.mango.algorithm.sort.MangoComparable;
  * <p>
  * 2018/4/18 13:18
  */
-public class MergeSortNonRecursive<T> extends Merge<T> {
+public class NonRecursiveMergeSorter<T> extends Merge<T> {
     @Override
     public void sort(T[] array, MangoComparable<T> comparable) {
         if (array == null || array.length < 2)
@@ -22,20 +22,17 @@ public class MergeSortNonRecursive<T> extends Merge<T> {
     }
 
     private void sortProcess(T[] array, MangoComparable<T> comparable) {
-        int step = 1;
 
-        while (step < array.length) {
-            int i = 0;
-            while (i+step < array.length) {
-                merge(array, i, i+step/2-1, i+step, comparable);
-                i += step;
+        for (int step = 1; step < array.length; step *= 2) {
+            for (int i = 0;i+step < array.length; i += 2*step) {
+                int mid = i + step -1;
+                int right = i + step*2 - 1;
+
+                right = right > array.length-1 ? array.length -1 : right;
+
+                merge(array, i, mid, right, comparable);
             }
-
-            merge(array, i, array.length/2, array.length-1, comparable);
-            step += step;
         }
-
-        merge(array, 0, array.length/2-1, array.length-1, comparable);
     }
 
 }

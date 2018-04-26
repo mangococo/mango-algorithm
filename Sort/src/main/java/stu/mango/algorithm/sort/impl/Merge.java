@@ -25,7 +25,6 @@ abstract class Merge<T> extends AbstractMangoSorter<T> {
         }
 
         while (p1 <= mid) {
-            System.out.println(p1 + ", " + mid);
             help[i++] = array[p1++];
         }
 

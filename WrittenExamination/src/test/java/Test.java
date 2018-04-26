@@ -1,6 +1,8 @@
 import stu.mango.algorithm.exam.queue.cat_dog_queue.Cat;
 import stu.mango.algorithm.exam.queue.cat_dog_queue.Dog;
 import stu.mango.algorithm.exam.queue.cat_dog_queue.PetQueue;
+import stu.mango.algorithm.exam.sort.MinSum;
+import stu.mango.algorithm.exam.stack.hanoii.HanoiProblem;
 import stu.mango.algorithm.exam.stack.min_value_stack.MinValueStack1;
 import stu.mango.algorithm.exam.stack.reverse_stack.ReverseStackByRecursive;
 import stu.mango.algorithm.exam.stack.sort_stack_by_other_stack.StackSorter;
@@ -79,16 +81,31 @@ public class Test {
         }
     }
 
-    public static void testStackSort() {
+    private static void testStackSort() {
         Stack<Integer> stack = createStack(10, 20);
         StackSorter.sortStackByOtherStack(stack);
         System.out.println(stack.toString());
+    }
+
+    private static void testMinSum() {
+        Integer[] array = {4, 1, 3, 5, 2, 0, 6};//AlgorithmUtil.generateRandomArray(10, 10);
+        System.out.println(Arrays.toString(array));
+        MinSum minSum = new MinSum();
+        System.out.println(minSum.violenceSolutionMinSum(array));
+        System.out.println(minSum.getMinSum(array));
+        System.out.println(Arrays.toString(array));
+    }
+
+    private static void testHanoi(int num, boolean debug) {
+        new HanoiProblem(debug).hanoi(num, "A", "B", "C");
     }
 
     public static void main(String[] args) {
 //        testMinStack();
 //        testReverseStack();
 //        testCatDogQueue();
-        testStackSort();
+//        testStackSort();
+//        testMinSum();
+        testHanoi(4, true);
     }
 }
