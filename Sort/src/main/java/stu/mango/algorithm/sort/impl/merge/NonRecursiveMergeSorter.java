@@ -1,6 +1,6 @@
-package stu.mango.algorithm.sort.impl;
+package stu.mango.algorithm.sort.impl.merge;
 
-import stu.mango.algorithm.sort.MangoComparable;
+import java.util.Comparator;
 
 /**
  * 归并排序 - 非递归
@@ -14,14 +14,14 @@ import stu.mango.algorithm.sort.MangoComparable;
  */
 public class NonRecursiveMergeSorter<T> extends Merge<T> {
     @Override
-    public void sort(T[] array, MangoComparable<T> comparable) {
+    public void sort(T[] array, Comparator<T> comparable) {
         if (array == null || array.length < 2)
             return;
 
         sortProcess(array, comparable);
     }
 
-    private void sortProcess(T[] array, MangoComparable<T> comparable) {
+    private void sortProcess(T[] array, Comparator<T> comparable) {
 
         for (int step = 1; step < array.length; step *= 2) {
             for (int i = 0;i+step < array.length; i += 2*step) {

@@ -1,6 +1,5 @@
 import stu.mango.algorithm.exam.queue.cat_dog_queue.Cat;
 import stu.mango.algorithm.exam.queue.cat_dog_queue.Dog;
-import stu.mango.algorithm.exam.queue.cat_dog_queue.PetQueue;
 import stu.mango.algorithm.exam.sort.MinSum;
 import stu.mango.algorithm.exam.stack.hanoii.HanoiProblem;
 import stu.mango.algorithm.exam.stack.min_value_stack.MinValueStack1;

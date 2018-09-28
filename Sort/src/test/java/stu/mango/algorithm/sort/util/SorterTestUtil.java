@@ -4,6 +4,7 @@ import stu.mango.algorithm.sort.MangoSorter;
 import stu.mango.algorithm.util.AlgorithmUtil;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Objects;
 
 public class SorterTestUtil {
@@ -45,7 +46,7 @@ public class SorterTestUtil {
      * 对数器
      */
     private static void sort(Integer[] array) {
-        Arrays.sort(array);
+        Arrays.sort(array, (o1, o2) -> o1 - o2);
     }
 
     public static void test(MangoSorter<Integer> sort, int size, int testTime) {
@@ -54,7 +55,7 @@ public class SorterTestUtil {
             Integer[] arr2 = arrayClone(arr1);
             Integer[] src = arrayClone(arr1);
 
-            sort.sort(arr1, (left, right) -> left - right);
+            sort.sort(arr1, Comparator.comparingInt(left -> left));
             sort(arr2);
             if (!isEqual(arr1, arr2)) {
                 System.out.println("第" + (i+1) + "次测试时失败：");

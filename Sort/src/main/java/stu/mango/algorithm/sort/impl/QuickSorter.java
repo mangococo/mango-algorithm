@@ -1,7 +1,8 @@
 package stu.mango.algorithm.sort.impl;
 
 import stu.mango.algorithm.sort.AbstractMangoSorter;
-import stu.mango.algorithm.sort.MangoComparable;
+
+import java.util.Comparator;
 
 /**
  * 随机快速排序（为了避免经典快速排序所出现最差情况）
@@ -18,7 +19,7 @@ import stu.mango.algorithm.sort.MangoComparable;
  */
 public class QuickSorter<T> extends AbstractMangoSorter<T> {
 
-    public void sort(T[] array, MangoComparable<T> comparable) {
+    public void sort(T[] array, Comparator<T> comparable) {
         if (array == null || array.length < 2) {
             return;
         }
@@ -26,7 +27,7 @@ public class QuickSorter<T> extends AbstractMangoSorter<T> {
         quickSort(array, 0, array.length-1, comparable);
     }
 
-    private void quickSort(T[] array, int left, int right, MangoComparable<T> comparable) {
+    private void quickSort(T[] array, int left, int right, Comparator<T> comparable) {
         if (left < right) {
             swap(array, left + (int) (Math.random() * (right -left + 1)), right);
             int[] index = partition(array, left, right, comparable);
@@ -35,21 +36,21 @@ public class QuickSorter<T> extends AbstractMangoSorter<T> {
         }
     }
 
-    private int[] partition(T[] arr, int left, int right, MangoComparable<T> comparable) {
-        int less = left - 1;
-        int more = right;
+    private int[] partition(T[] arr, int start, int end, Comparator<T> comparable) {
+        int less = start - 1;
+        int more = end;
 
-        while (left < more) {
-            if (comparable.compare(arr[left], arr[right]) < 0) {
-                swap(arr, left++, ++less);
-            } else if (comparable.compare(arr[left], arr[right]) > 0) {
-                swap(arr, left, --more);
+        while (start < more) {
+            if (comparable.compare(arr[start], arr[end]) < 0) {
+                swap(arr, start++, ++less);
+            } else if (comparable.compare(arr[start], arr[end]) > 0) {
+                swap(arr, start, --more);
             } else {
-                left++;
+                start++;
             }
         }
 
-        swap(arr, right, more++);
+        swap(arr, end, more++);
 
         return new int[]{less, more};
     }

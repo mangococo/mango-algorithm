@@ -4,12 +4,11 @@ import java.util.Queue;
 import java.util.concurrent.LinkedTransferQueue;
 
 /**
- *
  * @author mangococo
- *
- * 2018/4/10 21:16
- */
-public class PetQueue {
+ * <p>
+ * 2018/5/17 11:33
+ **/
+public class CatDogQueue {
 
     private Queue<PetNode> catQueue;
 
@@ -17,7 +16,7 @@ public class PetQueue {
 
     private int count;
 
-    public PetQueue() {
+    public CatDogQueue() {
         this.catQueue = new LinkedTransferQueue<>();
         this.dogQueue = new LinkedTransferQueue<>();
     }
@@ -45,6 +44,8 @@ public class PetQueue {
             return pollCat();
         }
 
+        assert catQueue.peek() != null;
+        assert dogQueue.peek() != null;
         if (catQueue.peek().getIndex() < dogQueue.peek().getIndex()) {
             return pollCat();
         }
@@ -104,6 +105,8 @@ public class PetQueue {
             return peekCat();
         }
 
+        assert catQueue.peek() != null;
+        assert dogQueue.peek() != null;
         if (catQueue.peek().getIndex() < dogQueue.peek().getIndex()) {
             return peekCat();
         }
@@ -118,5 +121,52 @@ public class PetQueue {
     public Dog peekDog() {
         return (Dog) dogQueue.peek().getPet();
     }
-}
 
+    private class Pet {
+        private String type;
+
+        Pet(String type) {
+            this.type = type;
+        }
+
+
+        String getType() {
+            return type;
+        }
+
+        @Override
+        public String toString() {
+            return type;
+        }
+    }
+
+    private class Cat extends Pet {
+        public Cat() {
+            super("cat");
+        }
+    }
+
+    private class Dog extends Pet {
+        public Dog() {
+            super("dog");
+        }
+    }
+
+    public class PetNode {
+        private Pet pet;
+        private int index;
+
+        PetNode(Pet pet, int index) {
+            this.pet = pet;
+            this.index = index;
+        }
+
+        Pet getPet() {
+            return pet;
+        }
+
+        int getIndex() {
+            return index;
+        }
+    }
+}

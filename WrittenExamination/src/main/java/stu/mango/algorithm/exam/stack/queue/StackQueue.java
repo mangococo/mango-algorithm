@@ -1,4 +1,4 @@
-package stu.mango.algorithm.exam.stack.queue_with_stack;
+package stu.mango.algorithm.exam.stack.queue;
 
 import java.util.Stack;
 

@@ -18,7 +18,7 @@ public class NetherlandsFlagProblem {
 
         while (left < more) {
             if (arr[left] < arr[right]) {
-                swap(arr, left++, ++less);
+                swap(arr,  left++, ++less);
             } else if (arr[left] > arr[right]) {
                 swap(arr, left, --more);
             } else {

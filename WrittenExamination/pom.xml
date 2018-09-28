@@ -13,7 +13,7 @@
     <dependencies>
         <dependency>
             <groupId>stu.mango.algorithm</groupId>
-            <artifactId>mango-algorithm</artifactId>
+            <artifactId>mango-algorithm-util</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
